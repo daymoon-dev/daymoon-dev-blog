@@ -6,7 +6,7 @@ import metaData from "../../data/metaData";
 export default function TitleTemplate() {
   const TitleTemplate = styled.section`
     display: flex;
-    height: calc(100vh - 90px);
+    height: 100vh;
     width: 100%;
     align-items: center;
     background: ${(props) => props.theme.colors.primary};
@@ -28,8 +28,8 @@ export default function TitleTemplate() {
   `;
 
   return (
-    <TitleTemplate>
-      <TitleContainer>
+    <TitleTemplate className="titleTemplate">
+      <TitleContainer className="titleContainer">
         <p>{metaData.personal.job}</p>
       </TitleContainer>
       <Line />

@@ -14,5 +14,5 @@ export default function Logo({ children }: any) {
       color: ${(props) => props.theme.colors.second};
     }
   `;
-  return <LogoContainer>{children}</LogoContainer>;
+  return <LogoContainer className="logo">{children}</LogoContainer>;
 }

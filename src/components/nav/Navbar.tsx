@@ -4,14 +4,15 @@ import Logo from "../assets/Logo";
 import NavElements from "./NavElements";
 
 export default function Navbar() {
-  const Navbar = styled.div`
+  const Navbar = styled.header`
+    position: fixed;
     display: flex;
-    height: 90px;
+    left: 0;
+    right: 0;
     padding: 0 3em;
-    color: ${(props) => props.theme.colors.primary};
+    height: 50px;
     align-items: center;
-
-    a {
+    / a {
       text-decoration: none;
       color: ${(props) => props.theme.colors.navElements};
     }
@@ -19,13 +20,12 @@ export default function Navbar() {
 
   const ContactContainer = styled.div`
     flex: 1;
-    line-height: 90px;
     text-align: right;
     color: red;
   `;
 
   return (
-    <Navbar>
+    <Navbar className="Navbar">
       <Logo>
         <Link to="/">daymoon's Dev Blog</Link>
       </Logo>

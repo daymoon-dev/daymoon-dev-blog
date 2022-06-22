@@ -11,16 +11,15 @@ export const Main = styled.h1`
 `;
 
 const Sub = styled.h2`
-  padding: 0;
-  margin-bottom: 0.6em;
+  margin-bottom: 0.3em;
   font-size: 2.25em;
   font-family: "NanumMyeongjo";
 `;
 
 export const MainTitle = ({ title }: TitlesProps) => {
-  return <Main>{title}</Main>;
+  return <Main className="mainTitle">{title}</Main>;
 };
 
 export const SubTitle = ({ title }: TitlesProps) => {
-  return <Sub>{title}</Sub>;
+  return <Sub className="subTitle">{title}</Sub>;
 };

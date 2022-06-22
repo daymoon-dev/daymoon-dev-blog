@@ -4,7 +4,8 @@ export default function PageTemplate({ children }: { children: any }) {
   const PageTemplate = styled.section`
     display: flex;
     flex-direction: row;
-    height: calc(90vh - 90px);
+    height: 90vh;
+    width: 100%;
   `;
   return <PageTemplate>{children}</PageTemplate>;
 }

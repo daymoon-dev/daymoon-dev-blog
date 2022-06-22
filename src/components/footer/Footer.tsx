@@ -12,7 +12,7 @@ export default function Footer() {
   `;
 
   return (
-    <Footer>
+    <Footer className="footer">
       <p>Copyright (c) 2022. {metaData.personal.nickname}</p>
     </Footer>
   );

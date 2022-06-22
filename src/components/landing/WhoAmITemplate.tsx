@@ -8,14 +8,16 @@ export default function WhoAmITemplate() {
     display: flex;
     flex-direction: row;
     width: 95%;
-    height: fit-content;
-    padding: 10em 0;
+    height: 80vh;
     background: ${(props) => props.theme.colors.third};
+    /* height: fit-content; */
+    /* padding: 10em 0; */
   `;
 
   const TitleBox = styled(Half)`
     justify-content: flex-start;
-    align-items: flex-start;
+
+    padding-top: 25vh;
   `;
 
   const MenuTitleBox = styled(Half)`
@@ -25,6 +27,7 @@ export default function WhoAmITemplate() {
     p {
       font-size: 2em;
       margin: 0;
+      letter-spacing: -1px;
     }
   `;
 
@@ -37,12 +40,15 @@ export default function WhoAmITemplate() {
     flex-direction: column;
     padding-top: 3vw;
 
-    &:first-child {
-      /* margin-bottom: 5em; */
+    p {
+      letter-spacing: 0;
     }
   `;
 
   const CareerContainer = styled.div`
+    b {
+      font-size: 1em;
+    }
     p {
       color: ${(props) => props.theme.colors.second};
       font-size: 1em;
@@ -62,11 +68,11 @@ export default function WhoAmITemplate() {
       <MenuTitleBox>
         <p>daymoon</p>
         <p>Frontend_Developer</p>
-        <SubTitleContainer>
-          <SubTitle title="경력" />
+        <SubTitleContainer className="subtitleContainer">
+          {/* <SubTitle title="경력" /> */}
           {metaData.career.map((career) => (
-            <CareerContainer key={career.id}>
-              <p>{career.period}</p>
+            <CareerContainer className="careerContainer" key={career.id}>
+              <b>{career.period}</b>
               <p>{career.company}</p>
               <p>{career.job}</p>
               <span>{career.stack}</span>

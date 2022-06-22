@@ -2,16 +2,16 @@ import styled from "styled-components";
 import { Main } from "./assets/Titles";
 import { Half } from "./landing/HalfContainer";
 
-export default function TitleTemplate({ title }: { title: string }) {
-  const TitleTemplate = styled(Half)`
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  `;
+export const Title = styled(Half)`
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
 
+export default function TitleTemplate({ title }: { title: string }) {
   return (
-    <TitleTemplate>
+    <Title>
       <Main>{title}</Main>
-    </TitleTemplate>
+    </Title>
   );
 }

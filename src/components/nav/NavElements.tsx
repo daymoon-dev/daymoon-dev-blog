@@ -8,7 +8,6 @@ const NavList = styled.ul`
   margin: 0;
   padding: 0;
   flex: 1;
-  line-height: 90px;
 
   li {
     list-style: none;
@@ -30,7 +29,7 @@ const NavList = styled.ul`
 
 function NavElements() {
   return (
-    <NavList>
+    <NavList className="navlist">
       {element.map((element) => (
         <li key={element.id}>
           <Link to={element.path}>{element.value}</Link>

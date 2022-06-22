@@ -4,8 +4,10 @@ import { Half } from "./landing/HalfContainer";
 
 export default function ContentTemplate() {
   const ContentTemplate = styled(Half)`
-    justify-content: center;
     flex-direction: column;
+    height: 100%;
+    padding-top: 50px;
+    overflow: auto;
 
     span {
       margin-bottom: 0.5em;
@@ -21,7 +23,7 @@ export default function ContentTemplate() {
 
   return (
     <ContentTemplate>
-      <SubTitle title="Recent" />
+      <SubTitle title="Popular" />
       <span>제목란입니다.</span>
       <p>
         Why is Rust being used to replace parts of the JavaScript web ecosystem
@@ -40,6 +42,25 @@ export default function ContentTemplate() {
         like minification (Terser), transpilation (Babel), formatting
         (Prettier), bundling (webpack), linting (ESLint), and more?
       </p>
+      <SubTitle title="All" />
+      <span>제목란입니다.</span>
+      <p>
+        Why is Rust being used to replace parts of the JavaScript web ecosystem
+        like minification (Terser), transpilation (Babel), formatting
+        (Prettier), bundling (webpack), linting (ESLint), and more?
+      </p>{" "}
+      <span>제목란입니다.</span>
+      <p>
+        Why is Rust being used to replace parts of the JavaScript web ecosystem
+        like minification (Terser), transpilation (Babel), formatting
+        (Prettier), bundling (webpack), linting (ESLint), and more?
+      </p>{" "}
+      <span>제목란입니다.</span>
+      <p>
+        Why is Rust being used to replace parts of the JavaScript web ecosystem
+        like minification (Terser), transpilation (Babel), formatting
+        (Prettier), bundling (webpack), linting (ESLint), and more?
+      </p>{" "}
       <span>제목란입니다.</span>
       <p>
         Why is Rust being used to replace parts of the JavaScript web ecosystem
