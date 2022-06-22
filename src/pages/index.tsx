@@ -6,19 +6,19 @@ import LandingPage from "../components/landing";
 import Footer from "../components/footer/Footer";
 import Posts from "./posts";
 import Portfolio from "./portfolio";
+import PostDetail from "./postDetail";
 
 export const GlobalStyle = createGlobalStyle`
  body{
-   background-color: ${(props) => props.theme.colors.primary};
+   background-color: ${({ theme }) => theme.colors.primary};
 
-   
    font-family: "NanumMyeongjo";
-   color: ${(props) => props.theme.colors.second};
+   color: ${({ theme }) => theme.colors.second};
   }
 
   @font-face {
    font-family: 'NanumMyeongjo';
-   src: url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap'), 
+   src: url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
   }
 
   @font-face {
@@ -41,6 +41,7 @@ function Index() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/postdetail" element={<PostDetail />} />
         </Routes>
         <Footer />
       </ThemeProvider>
