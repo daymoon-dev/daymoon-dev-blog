@@ -7,6 +7,7 @@ import Footer from "../components/footer/Footer";
 import Posts from "./posts";
 import Portfolio from "./portfolio";
 import PostDetail from "./postDetail";
+import PostInput from "./postInput";
 
 export const GlobalStyle = createGlobalStyle`
  body{
@@ -42,6 +43,7 @@ function Index() {
           <Route path="/posts" element={<Posts />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/postdetail" element={<PostDetail />} />
+          <Route path="/postinput" element={<PostInput />} />
         </Routes>
         <Footer />
       </ThemeProvider>
