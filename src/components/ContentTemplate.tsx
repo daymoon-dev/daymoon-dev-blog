@@ -1,13 +1,29 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { SubTitle } from "./assets/Titles";
+// import { SubTitle } from "./assets/Titles";
 import { Half } from "./landing/HalfContainer";
 
 export default function ContentTemplate() {
+
+  useEffect(() => {
+    fetch(`http://localhost:3001/posts`, {
+      method: "GET",
+      headers: {
+        "Access-Control-Allow-Origin": "http://localhost:3000"
+      }
+    }).then(response => response.json())
+      .then(content => setContents(content));
+  }, [])
+
+  const [contents, setContents] = useState<any[]>([]);
+
   const ContentTemplate = styled(Half)`
     flex-direction: column;
     height: 100%;
     padding-top: 50px;
     overflow: auto;
+    justify-content: center;
 
     span {
       margin-bottom: 0.5em;
@@ -23,50 +39,15 @@ export default function ContentTemplate() {
 
   return (
     <ContentTemplate>
-      <SubTitle title="Popular" />
-      <span>제목란입니다.</span>
-      <p>
-        Why is Rust being used to replace parts of the JavaScript web ecosystem
-        like minification (Terser), transpilation (Babel), formatting
-        (Prettier), bundling (webpack), linting (ESLint), and more?
-      </p>
-      <span>제목란입니다.</span>
-      <p>
-        Why is Rust being used to replace parts of the JavaScript web ecosystem
-        like minification (Terser), transpilation (Babel), formatting
-        (Prettier), bundling (webpack), linting (ESLint), and more?
-      </p>
-      <span>제목란입니다.</span>
-      <p>
-        Why is Rust being used to replace parts of the JavaScript web ecosystem
-        like minification (Terser), transpilation (Babel), formatting
-        (Prettier), bundling (webpack), linting (ESLint), and more?
-      </p>
-      <SubTitle title="All" />
-      <span>제목란입니다.</span>
-      <p>
-        Why is Rust being used to replace parts of the JavaScript web ecosystem
-        like minification (Terser), transpilation (Babel), formatting
-        (Prettier), bundling (webpack), linting (ESLint), and more?
-      </p>{" "}
-      <span>제목란입니다.</span>
-      <p>
-        Why is Rust being used to replace parts of the JavaScript web ecosystem
-        like minification (Terser), transpilation (Babel), formatting
-        (Prettier), bundling (webpack), linting (ESLint), and more?
-      </p>{" "}
-      <span>제목란입니다.</span>
-      <p>
-        Why is Rust being used to replace parts of the JavaScript web ecosystem
-        like minification (Terser), transpilation (Babel), formatting
-        (Prettier), bundling (webpack), linting (ESLint), and more?
-      </p>{" "}
-      <span>제목란입니다.</span>
-      <p>
-        Why is Rust being used to replace parts of the JavaScript web ecosystem
-        like minification (Terser), transpilation (Babel), formatting
-        (Prettier), bundling (webpack), linting (ESLint), and more?
-      </p>
-    </ContentTemplate>
+      {contents.map(content =>
+        <>
+          <Link to={`/postdetail/${content.id}`}>
+            <span key={content.id}>{content.title}</span>
+            <p>lorem Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque tenetur tempora placeat corporis maiores saepe nam cumque ipsa exercitationem quidem obcaecati illum veniam, magnam, nesciunt voluptatem dolores accusamus asperiores praesentium?</p>
+          </Link>
+        </>
+      )
+      }
+    </ContentTemplate >
   );
 }

@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 import { MainTitle } from "../components/assets/Titles";
 import { Half } from "../components/landing/HalfContainer";
@@ -19,13 +21,24 @@ export const ContentContainer = styled(Half)`
   padding: 3.1em 3em 0 1.5em;
 `;
 
-export default function PostDetail() {
+export default function PostDetail(id: any) {
+  const [contents, setContents] = useState({ content: "", title: "" });
+  const { content, title } = contents;
+
+  useEffect(() => {
+    fetch(`http://localhost:3001/posts/${id}`)
+      .then(response => response.json())
+      .then((data) => setContents(data))
+  }, [id]);
+
   return (
     <PageTemplate>
-      <PostTitle>
-        <MainTitle title="Lorem ipsum dolor sit amet consectetur, magni distinctio?" />
+      <PostTitle className="postTitle">
+        <MainTitle title={title} />
       </PostTitle>
-      <ContentContainer>markdown section</ContentContainer>
+      <ContentContainer className="contentContainer">
+        <ReactMarkdown children={content} />
+      </ContentContainer>
     </PageTemplate>
   );
 }
