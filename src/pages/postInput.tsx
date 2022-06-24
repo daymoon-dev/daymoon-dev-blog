@@ -1,67 +1,115 @@
+import { useState } from "react";
+import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 import PageTemplate from "../components/PageTemplate";
 import { ContentContainer, PostTitle } from "./postDetail";
-import { useState } from "react";
+
+const PostInputTemplate = styled(PageTemplate)``;
+const Form = styled.form`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+`;
 
 const PostInputTitle = styled(PostTitle)`
   justify-content: flex-end;
+  height: 100%;
+`;
+
+const PostTextArea = styled.textarea`
+  width: 100%;
+  border: 0;
+  background: transparent;
+  font-size: 2em;
+  resize: none;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+const PostInputArea = styled(PostTextArea)`
+  height: 70%;
+  font-size: 5em;
+  text-align: right;
+`;
+
+const Button = styled.button`
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  padding: 1em;
+  right: center;
+  bottom: 1em;
+  background: ${(props) => props.theme.colors.primary};
+  border: 1 solid black;
+
+  &:hover {
+    background: ${(props) => props.theme.colors.third};
+  }
 `;
 
 export default function PostInput() {
-  const [postInput, setPostInput] = useState("");
+  const [inputText, setInputText] = useState({ title: "", content: "" });
+  const { title, content } = inputText;
 
-  const PostInput = styled.input`
-    width: 70%;
-    height: fit-content;
-    font-size: 5em;
-    background-color: transparent;
-    border: 0 solid ${(props) => props.theme.colors.second};
-    text-align: right;
+  const postInputChange = (e: any) => {
+    const { name, value } = e.target;
 
-    &:focus {
-      outline: none;
-    }
-  `;
-
-  const PostTextArea = styled.textarea`
-    width: 100%;
-    border: 0;
-    background: transparent;
-    font-size: 2em;
-    text-align: left;
-    border-left: 1px solid ${(props) => props.theme.colors.second};
-
-    &:focus {
-      outline: none;
-    }
-  `;
-
-  const postInputs = (e: any) => {
-    console.log(e.target.value);
+    setInputText({
+      ...inputText,
+      [name]: value,
+    });
+    console.log([name], value);
   };
 
-  const postTextArea = (e: any) => {
-    console.log(e.target.value);
-  };
+  const postIt = (e: any) => {
+    e.preventDefault();
+    const { name, value } = e.target;
 
-  const postArticle = (e: any) => {};
+    fetch('http://localhost:3001/posts', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3000"
+      },
+      body: JSON.stringify({
+        ...inputText,
+        [name]: value,
+      })
+    }).then(() => {
+      setInputText({ title: "", content: "" });
+    }).catch(error => console.error(error));
+  };
 
   return (
-    <PageTemplate>
-      <form onSubmit={postArticle}>
+    <PostInputTemplate>
+      <Form className="classForm" onSubmit={postIt}>
         <PostInputTitle>
-          <PostInput
-            className="postInput"
+          <PostInputArea
             autoFocus
+            required
+            className="postInput"
             placeholder="제목"
-            onChange={postInputs}
+            name="title"
+            value={title}
+            onChange={postInputChange}
           />
         </PostInputTitle>
         <ContentContainer>
-          <PostTextArea className="postTextArea" onChange={postTextArea} />
+          <PostTextArea
+            className="postTextArea"
+            placeholder="내용을 입력하세요."
+            name="content"
+            value={content}
+            onChange={postInputChange}
+          />
+          <Button>게시</Button>
         </ContentContainer>
-        <button>execute</button>
-      </form>
-    </PageTemplate>
+      </Form>
+      <ContentContainer>
+        <ReactMarkdown children={content} />
+      </ContentContainer>
+    </PostInputTemplate>
   );
 }
