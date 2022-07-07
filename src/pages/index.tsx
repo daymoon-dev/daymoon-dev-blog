@@ -33,8 +33,6 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 function Index() {
-  let id;
-
   return (
     <>
       <ThemeProvider theme={light}>
@@ -43,8 +41,8 @@ function Index() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/posts" element={<Posts />} />
+          <Route path="/posts/:id" element={<PostDetail />} />
           <Route path="/portfolio" element={<Portfolio />} />
-          <Route path={`/postdetail/${id}`} element={<PostDetail />} />
           <Route path="/postinput" element={<PostInput />} />
         </Routes>
         <Footer />

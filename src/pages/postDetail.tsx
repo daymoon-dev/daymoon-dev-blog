@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { MainTitle } from "../components/assets/Titles";
 import { Half } from "../components/landing/HalfContainer";
 import PageTemplate from "../components/PageTemplate";
+import { useParams } from "react-router-dom";
 
 export const PostTitle = styled(Half)`
   align-items: center;
@@ -21,14 +22,17 @@ export const ContentContainer = styled(Half)`
   padding: 3.1em 3em 0 1.5em;
 `;
 
-export default function PostDetail(id: any) {
-  const [contents, setContents] = useState({ content: "", title: "" });
-  const { content, title } = contents;
+export default function PostDetail() {
+  const [contents, setContents] = useState({ title: "", content: "" });
+  const { title, content } = contents;
+  const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:3001/posts/${id}`)
-      .then(response => response.json())
-      .then((data) => setContents(data))
+    fetch(
+      `https://2kqdat8o2c.execute-api.ap-northeast-2.amazonaws.com/post/${id}`
+    )
+      .then((response) => response.json())
+      .then((data) => setContents(data));
   }, [id]);
 
   return (

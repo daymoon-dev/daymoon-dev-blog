@@ -8,6 +8,6 @@
 
 ### TODO
 
-- Theme toggle
-- markdown Editor
-- Seperate a Style sheet
+- [ ] Theme toggle
+- [ ] markdown Editor
+- [ ] Seperate a Style sheet

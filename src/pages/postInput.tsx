@@ -60,26 +60,22 @@ export default function PostInput() {
       ...inputText,
       [name]: value,
     });
-    console.log([name], value);
   };
 
   const postIt = (e: any) => {
     e.preventDefault();
     const { name, value } = e.target;
 
-    fetch('http://localhost:3001/posts', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "http://localhost:3000"
-      },
+    fetch("https://2kqdat8o2c.execute-api.ap-northeast-2.amazonaws.com/post", {
+      method: "PUT",
       body: JSON.stringify({
+        id: new Date().getTime().toString(),
         ...inputText,
         [name]: value,
-      })
-    }).then(() => {
-      setInputText({ title: "", content: "" });
-    }).catch(error => console.error(error));
+      }),
+    })
+      .then((res) => res.ok && setInputText({ title: "", content: "" }))
+      .catch((error) => console.error(error));
   };
 
   return (
