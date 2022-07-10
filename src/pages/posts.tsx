@@ -5,26 +5,21 @@ import { useEffect, useState } from "react";
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch(`https://2kqdat8o2c.execute-api.ap-northeast-2.amazonaws.com/post`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin":
-          "https://2kqdat8o2c.execute-api.ap-northeast-2.amazonaws.com",
-      },
-    })
+    setLoading(true);
+    fetch(`https://2kqdat8o2c.execute-api.ap-northeast-2.amazonaws.com/post`)
       .then((response) => response.json())
       .then((data) => setPosts(data))
-      // .then((date) => console.log(date))
+      .then(() => setLoading(false))
       .catch((err) => console.log(err));
-  }, [setPosts]);
+  }, []);
 
   return (
     <PageTemplate>
       <TitleTemplate title="echo" />
-      <ContentTemplate posts={posts} />
+      <ContentTemplate posts={posts} loading={loading} />
     </PageTemplate>
   );
 }

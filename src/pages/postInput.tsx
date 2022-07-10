@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 import PageTemplate from "../components/PageTemplate";
@@ -12,6 +12,7 @@ const Form = styled.form`
 `;
 
 const PostInputTitle = styled(PostTitle)`
+  flex-direction: column;
   justify-content: flex-end;
   height: 100%;
 `;
@@ -22,6 +23,7 @@ const PostTextArea = styled.textarea`
   background: transparent;
   font-size: 2em;
   resize: none;
+  height: 100%;
 
   &:focus {
     outline: none;
@@ -29,9 +31,22 @@ const PostTextArea = styled.textarea`
 `;
 
 const PostInputArea = styled(PostTextArea)`
-  height: 70%;
+  height: 50%;
   font-size: 5em;
   text-align: right;
+`;
+
+const Description = styled.input`
+  background: transparent;
+  width: 100%;
+  height: 30%;
+  font-size: 1em;
+  border: 0;
+  text-align: right;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const Button = styled.button`
@@ -50,10 +65,14 @@ const Button = styled.button`
 `;
 
 export default function PostInput() {
-  const [inputText, setInputText] = useState({ title: "", content: "" });
-  const { title, content } = inputText;
-
-  const postInputChange = (e: any) => {
+  const [inputText, setInputText] = useState({
+    title: "",
+    content: "",
+    description: "",
+  });
+  const { title, content, description } = inputText;
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const postTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
 
     setInputText({
@@ -62,9 +81,15 @@ export default function PostInput() {
     });
   };
 
-  const postIt = (e: any) => {
+  const postInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputText({ ...inputText, description: e.target.value });
+  };
+
+  const postIt = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { name, value } = e.target;
+    const { name, value } = e.currentTarget;
+
+    buttonRef.current!.disabled = true;
 
     fetch("https://2kqdat8o2c.execute-api.ap-northeast-2.amazonaws.com/post", {
       method: "PUT",
@@ -74,7 +99,11 @@ export default function PostInput() {
         [name]: value,
       }),
     })
-      .then((res) => res.ok && setInputText({ title: "", content: "" }))
+      .then(
+        (res) =>
+          res.ok && setInputText({ title: "", content: "", description: "" })
+      )
+      .then(() => (buttonRef.current!.disabled = false))
       .catch((error) => console.error(error));
   };
 
@@ -89,6 +118,13 @@ export default function PostInput() {
             placeholder="제목"
             name="title"
             value={title}
+            onChange={postTextAreaChange}
+          />
+          <Description
+            className="description"
+            placeholder="글 요약"
+            name="description"
+            value={description}
             onChange={postInputChange}
           />
         </PostInputTitle>
@@ -98,10 +134,10 @@ export default function PostInput() {
             placeholder="내용을 입력하세요."
             name="content"
             value={content}
-            onChange={postInputChange}
+            onChange={postTextAreaChange}
           />
-          <Button>게시</Button>
         </ContentContainer>
+        <Button ref={buttonRef}>게시</Button>
       </Form>
       <ContentContainer>
         <ReactMarkdown children={content} />

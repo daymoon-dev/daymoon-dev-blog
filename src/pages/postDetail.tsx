@@ -4,27 +4,48 @@ import styled from "styled-components";
 import { MainTitle } from "../components/assets/Titles";
 import { Half } from "../components/landing/HalfContainer";
 import PageTemplate from "../components/PageTemplate";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export const PostTitle = styled(Half)`
-  align-items: center;
+  justify-content: center;
   text-align: right;
   line-height: 5em;
   padding-left: 3em;
+  flex-direction: column;
+
+  p {
+    margin: 0;
+    height: 0;
+  }
 `;
 
 export const ContentContainer = styled(Half)`
+  flex-direction: column;
   justify-content: flex-start;
   overflow: auto;
   width: 55%;
   text-align: left;
   font-size: 2em;
-  padding: 3.1em 3em 0 1.5em;
+  /* padding: 3.1em 3em 0 1.5em; */
 `;
 
+const StyledLink = styled(Link)`
+  position: absolute;
+  top: 40vh;
+  left: 5vh;
+  font-size: 5em;
+  color: black;
+`;
+
+const postParam = {
+  title: "",
+  content: "",
+  description: "",
+};
+
 export default function PostDetail() {
-  const [contents, setContents] = useState({ title: "", content: "" });
-  const { title, content } = contents;
+  const [contents, setContents] = useState(postParam);
+  const { title, content, description } = contents;
   const { id } = useParams();
 
   useEffect(() => {
@@ -37,8 +58,10 @@ export default function PostDetail() {
 
   return (
     <PageTemplate>
-      <PostTitle className="postTitle">
+      <StyledLink to="/posts">&larr;</StyledLink>
+      <PostTitle className="MainpostTitle">
         <MainTitle title={title} />
+        <p>{description}</p>
       </PostTitle>
       <ContentContainer className="contentContainer">
         <ReactMarkdown children={content} />
