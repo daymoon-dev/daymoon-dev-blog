@@ -17,12 +17,15 @@
 - [ ] Seperate a Style sheet
 - [ ] Lazy Loading
   - [x] 로딩...
-- [ ] Optimize Mobile
-- [ ] Business Layer...?
+- [ ] 모바일 최적화(반응형) 
 - [ ] Refactoring
+  - [ ] Business Layer...?
 - [ ] 권한 설정
   - [ ] Login
   - [ ] JWT
 - [ ] Context API
 - [x] 중복 게재 방지
 - [ ] SEO
+  - [ ] react-helmet
+- [x] CI/CD
+- [ ] typescript 타입 지정
