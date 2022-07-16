@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Half } from "./HalfContainer";
-// import metaData from "../../data/metaData.json";
-import metaData from "../../data/metaData";
+import { metaData } from "../../data/metaData";
 
 export default function TitleTemplate() {
   const TitleTemplate = styled.section`

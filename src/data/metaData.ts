@@ -4,6 +4,7 @@ type metaDataProps = {
     nickname: string;
     job: string;
   };
+
   career: {
     id: number;
     period: string;
@@ -31,4 +32,6 @@ const metaData: metaDataProps = {
   ],
 };
 
-export default metaData;
+const fetchAddr: string = `https://2kqdat8o2c.execute-api.ap-northeast-2.amazonaws.com/post`;
+
+export { metaData, fetchAddr };

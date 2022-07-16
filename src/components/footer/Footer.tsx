@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import metaData from "../../data/metaData";
+import { metaData } from "../../data/metaData";
 
 export default function Footer() {
   const Footer = styled.div`

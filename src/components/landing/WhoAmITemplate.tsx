@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { Main, SubTitle } from "../assets/Titles";
+import { Main } from "../assets/Titles";
 import { Half } from "./HalfContainer";
-import metaData from "../../data/metaData";
+import { metaData } from "../../data/metaData";
 
 export default function WhoAmITemplate() {
   const WhoAmITemplate = styled.section`

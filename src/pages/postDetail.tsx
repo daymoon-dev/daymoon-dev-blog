@@ -5,6 +5,7 @@ import { MainTitle } from "../components/assets/Titles";
 import { Half } from "../components/landing/HalfContainer";
 import PageTemplate from "../components/PageTemplate";
 import { Link, useParams } from "react-router-dom";
+import { fetchAddr } from "../data/metaData";
 
 export const PostTitle = styled(Half)`
   justify-content: center;
@@ -31,7 +32,7 @@ export const ContentContainer = styled(Half)`
 
 const StyledLink = styled(Link)`
   position: absolute;
-  top: 40vh;
+  top: 45vh;
   left: 5vh;
   font-size: 5em;
   color: black;
@@ -49,9 +50,7 @@ export default function PostDetail() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(
-      `https://2kqdat8o2c.execute-api.ap-northeast-2.amazonaws.com/post/${id}`
-    )
+    fetch(fetchAddr + `/${id}`)
       .then((response) => response.json())
       .then((data) => setContents(data));
   }, [id]);

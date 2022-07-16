@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import Navbar from "../components/nav/Navbar";
 import { light } from "../styles/theme";
 import LandingPage from "../components/landing";
@@ -8,29 +8,7 @@ import Posts from "./posts";
 import Portfolio from "./portfolio";
 import PostDetail from "./postDetail";
 import PostInput from "./postInput";
-
-export const GlobalStyle = createGlobalStyle`
- body{
-   background-color: ${({ theme }) => theme.colors.primary};
-
-   font-family: "NanumMyeongjo";
-   color: ${({ theme }) => theme.colors.second};
-  }
-
-  @font-face {
-   font-family: 'NanumMyeongjo';
-   src: url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
-  }
-
-  @font-face {
-   font-family: 'Inter';
-   src: url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-  }
-
-  a {
-    text-decoration: none;
-  }
-`;
+import { GlobalStyle } from "../styles/globalStyles";
 
 function Index() {
   return (

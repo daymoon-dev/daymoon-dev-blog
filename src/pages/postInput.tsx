@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 import PageTemplate from "../components/PageTemplate";
+import { fetchAddr } from "../data/metaData";
 import { ContentContainer, PostTitle } from "./postDetail";
 
 const PostInputTemplate = styled(PageTemplate)``;
@@ -91,7 +92,7 @@ export default function PostInput() {
 
     buttonRef.current!.disabled = true;
 
-    fetch("https://2kqdat8o2c.execute-api.ap-northeast-2.amazonaws.com/post", {
+    fetch(fetchAddr, {
       method: "PUT",
       body: JSON.stringify({
         id: new Date().getTime().toString(),

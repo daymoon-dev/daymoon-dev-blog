@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { PostProps } from "../pages/posts";
 import { Half } from "./landing/HalfContainer";
 
 export default function ContentTemplate({
   posts,
   loading,
 }: {
-  posts: any;
-  loading: any;
+  posts: PostProps[];
+  loading: boolean;
 }) {
   const ContentTemplate = styled(Half)`
     flex-direction: column;
     height: 100%;
     overflow: auto;
-    /* justify-content: ; */
 
     span {
       margin-bottom: 0.5em;
@@ -33,12 +33,11 @@ export default function ContentTemplate({
     }
   `;
 
-  console.log(loading);
   return (
     <ContentTemplate>
       {loading
         ? "loading..."
-        : posts.map((post: any) => (
+        : posts.map((post: PostProps) => (
             <div key={post.id}>
               <Link to={`/posts/${post.id}`}>
                 <span>{post.title}</span>

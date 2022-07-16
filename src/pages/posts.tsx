@@ -2,14 +2,22 @@ import TitleTemplate from "../components/TitleTemplate";
 import PageTemplate from "../components/PageTemplate";
 import ContentTemplate from "../components/ContentTemplate";
 import { useEffect, useState } from "react";
+import { fetchAddr } from "../data/metaData";
 
-export default function Posts() {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(false);
+export type PostProps = {
+  id: string;
+  title: string;
+  description: string;
+};
+
+export default function Posts(): React.ReactElement {
+  const [posts, setPosts] = useState<PostProps[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://2kqdat8o2c.execute-api.ap-northeast-2.amazonaws.com/post`)
+
+    fetch(fetchAddr)
       .then((response) => response.json())
       .then((data) => setPosts(data))
       .then(() => setLoading(false))

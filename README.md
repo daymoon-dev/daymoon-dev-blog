@@ -16,8 +16,8 @@
 - [ ] markdown Editor
 - [ ] Seperate a Style sheet
 - [ ] Lazy Loading
-  - [x] 로딩...
-- [ ] 모바일 최적화(반응형) 
+  - [x] 로딩 메시지
+- [ ] 모바일 최적화(반응형)
 - [ ] Refactoring
   - [ ] Business Layer...?
 - [ ] 권한 설정
@@ -28,4 +28,4 @@
 - [ ] SEO
   - [ ] react-helmet
 - [x] CI/CD
-- [ ] typescript 타입 지정
+- [x] typescript 타입 지정
