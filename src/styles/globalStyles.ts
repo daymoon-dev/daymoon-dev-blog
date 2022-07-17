@@ -10,12 +10,12 @@ export const GlobalStyle = createGlobalStyle`
 
   @font-face {
    font-family: 'NanumMyeongjo';
-   src: url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+   src: url('./fonts/nanumMyeongjo/NanumMyeongjo.woff2');
   }
 
   @font-face {
    font-family: 'Inter';
-   src: url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+   src: url('./fonts/inter/Inter-Regular.woff2');
   }
 
   a {
