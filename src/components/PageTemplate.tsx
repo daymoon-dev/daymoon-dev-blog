@@ -7,6 +7,10 @@ export const PageTemplates = styled.section`
   width: 100%;
   padding-top: 10vh;
 `;
-export default function PageTemplate({ children }: { children: any }) {
+export default function PageTemplate({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <PageTemplates>{children}</PageTemplates>;
 }
