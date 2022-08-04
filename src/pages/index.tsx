@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import Navbar from "../components/nav/Navbar";
-import { light } from "../styles/theme";
+import { theme } from "../styles/theme";
 import LandingPage from "../components/landing";
 import Footer from "../components/footer/Footer";
 import Posts from "./posts";
@@ -13,7 +13,7 @@ import { GlobalStyle } from "../styles/globalStyles";
 function Index() {
   return (
     <>
-      <ThemeProvider theme={light}>
+      <ThemeProvider theme={theme.light}>
         <GlobalStyle />
         <Navbar />
         <Routes>
