@@ -1,38 +1,20 @@
-import { css, CSSProp } from "styled-components";
-
 interface breakpointProps {
   mobile: number;
   tablet: number;
   desktop: number;
+  [index: string]: any;
 }
 
 const breakpoint: breakpointProps = {
-  mobile: 540,
-  tablet: 768,
+  mobile: 576,
+  tablet: 900,
   desktop: 1080,
 };
 
-const mediaQuery = {
-  mobile: (literals: TemplateStringsArray, ...args: string[]): CSSProp =>
-    css`
-      @media only screen and (max-width: ${breakpoint.mobile}px) {
-        ${css(literals, ...args)}
-      }
-    `,
-
-  tablet: (literals: TemplateStringsArray, ...args: string[]): CSSProp =>
-    css`
-      @media only screen and (max-width: ${breakpoint.tablet}px) {
-        ${css(literals, ...args)}
-      }
-    `,
-
-  desktop: (literals: TemplateStringsArray, ...args: string[]): CSSProp =>
-    css`
-      @media only screen and (max-width: ${breakpoint.desktop}px) {
-        ${css(literals, ...args)}
-      }
-    `,
-};
-
-export default mediaQuery;
+export const mediaQeury = (
+  Object.keys(breakpoint) as Array<keyof typeof breakpoint>
+).reduce((acc, key) => {
+  acc[key] = (style: string) =>
+    `@media (max-width: ${breakpoint[key]}px) { ${style} }`;
+  return acc;
+}, {} as { [index: string]: Function });

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Main } from "../assets/Titles";
 import { Half } from "./HalfContainer";
 import { metaData } from "../../data/metaData";
+import { theme } from "../../styles/theme";
 
 export default function WhoAmITemplate() {
   const WhoAmITemplate = styled.section`
@@ -10,14 +11,15 @@ export default function WhoAmITemplate() {
     width: 95%;
     height: 80vh;
     background: ${(props) => props.theme.colors.third};
-    /* height: fit-content; */
-    /* padding: 10em 0; */
   `;
 
   const TitleBox = styled(Half)`
     justify-content: flex-start;
-
     padding-top: 25vh;
+
+    ${theme.mediaQeury.tablet`
+      padding-top: 10vh;
+    `}
   `;
 
   const MenuTitleBox = styled(Half)`
@@ -29,6 +31,19 @@ export default function WhoAmITemplate() {
       margin: 0;
       letter-spacing: -1px;
     }
+
+    ${theme.mediaQeury.tablet`
+      p{
+        font-size: 2em;
+      }
+    `}
+
+    ${theme.mediaQeury.mobile`
+      p{
+        font-size: 1.3em;
+      }
+      padding-right: 1em;
+    `}
   `;
 
   const WhoAmITitle = styled(Main)`
@@ -36,8 +51,6 @@ export default function WhoAmITemplate() {
   `;
 
   const SubTitleContainer = styled.div`
-    display: flex;
-    flex-direction: column;
     padding-top: 3vw;
 
     p {
@@ -58,6 +71,10 @@ export default function WhoAmITemplate() {
       color: ${(props) => props.theme.colors.navElements};
       font-size: 0.8em;
     }
+
+    /* ${theme.mediaQeury.tablet`
+      padding-top: 5em;
+    `} */
   `;
 
   return (

@@ -1,5 +1,5 @@
 import { DefaultTheme } from "styled-components";
-import mediaQuery from "./mediaQuery";
+import { mediaQeury } from "./mediaQuery";
 
 const light: DefaultTheme = {
   colors: {
@@ -19,4 +19,4 @@ const dark = {
   },
 };
 
-export const theme = { light, dark, mediaQuery };
+export const theme = { light, dark, mediaQeury };
