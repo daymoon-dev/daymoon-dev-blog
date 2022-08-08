@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Main } from "../assets/Titles";
 import { Half } from "./HalfContainer";
 import { metaData } from "../../data/metaData";
-import { theme } from "../../styles/theme";
+import theme from "../../styles/theme";
 
 export default function WhoAmITemplate() {
   const WhoAmITemplate = styled.section`
@@ -84,7 +84,7 @@ export default function WhoAmITemplate() {
       </TitleBox>
       <MenuTitleBox>
         <p>daymoon</p>
-        <p>Frontend_Developer</p>
+        <p>Frontend Developer</p>
         <SubTitleContainer className="subtitleContainer">
           {/* <SubTitle title="경력" /> */}
           {metaData.career.map((career) => (

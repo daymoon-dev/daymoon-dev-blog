@@ -3,6 +3,8 @@ type metaDataProps = {
     name: string;
     nickname: string;
     job: string;
+    github: string;
+    instagram: string;
   };
 
   career: {
@@ -19,6 +21,8 @@ const metaData: metaDataProps = {
     name: "이종엽",
     nickname: "daymoon",
     job: "Frontend",
+    github: "http://github.com/daymoon-dev",
+    instagram: "https://instagram.com/icn_daymoon",
   },
 
   career: [

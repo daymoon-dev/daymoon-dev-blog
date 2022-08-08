@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import Navbar from "../components/nav/Navbar";
-import { theme } from "../styles/theme";
+import theme from "../styles/theme";
 import LandingPage from "../components/landing";
 import Footer from "../components/footer/Footer";
 import Posts from "./posts";

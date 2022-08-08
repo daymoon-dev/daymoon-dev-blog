@@ -1,10 +1,10 @@
+import React, { ReactElement } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import element from "../../data/NavElement";
-import { theme } from "../../styles/theme";
 
 const NavList = styled.ul`
-  display: flex;
+  display: ${(isOpen) => (isOpen ? "flex" : "none")};
   justify-content: center;
   margin: 0;
   padding: 0;
@@ -28,12 +28,24 @@ const NavList = styled.ul`
   }
 `;
 
-function NavElements() {
+function NavElements({
+  isOpen,
+  setIsOpen,
+}: {
+  isOpen: boolean;
+  setIsOpen: Function;
+}): ReactElement {
+  const menuClick = (e: React.MouseEvent<HTMLElement>) => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <NavList className="navlist">
       {element.map((element) => (
         <li key={element.id}>
-          <Link to={element.path}>{element.value}</Link>
+          <Link onClick={menuClick} to={element.path}>
+            {element.value}
+          </Link>
         </li>
       ))}
     </NavList>

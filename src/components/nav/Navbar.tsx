@@ -1,16 +1,22 @@
 import styled from "styled-components";
+import { metaData } from "../../data/metaData";
 import { Link } from "react-router-dom";
 import Logo from "../assets/Logo";
 import NavElements from "./NavElements";
-import { theme } from "../../styles/theme";
+import theme from "../../styles/theme";
+import github from "../assets/github.svg";
+import instagram from "../assets/instagram.svg";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const Navbar = styled.header`
     position: fixed;
     display: flex;
     left: 0;
     right: 0;
-    padding: 0 3em;
+    padding: 0 1.5em;
     height: 50px;
     align-items: center;
 
@@ -41,9 +47,9 @@ export default function Navbar() {
 
     .hamburger-button::before,
     .hamburger-button::after {
-      display: block;
-      background-color: black;
       position: absolute;
+      display: block;
+      background-color: ${theme.light.colors.second};
       height: 2px;
       width: 20px;
     }
@@ -74,35 +80,50 @@ export default function Navbar() {
 
     ${theme.mediaQeury.tablet`
       padding: 0 1em;          
-      justify-content: space-between;
-      
+
       .hamburger-container{
         display: flex;
       }
 
       #hamburger-menu:checked ~ ul{
         display: flex;
-        align-items: flex-end;
       }
       
+      #hamburger-menu:checked ~ p {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        background-color: ${theme.light.colors.primary}
+        width: 100%;
+        top: 196.8px;
+        right: 0;
+        padding-right: 1em;
+        padding-bottom: 1em;
+        margin: 0;
+        opacity: 0.8;
+      }
+
       ul {
         display: none;
+        align-items: flex-end;
         position: absolute;
         width: 100%;
         flex-direction: column;
         right: 0;
         padding: 0.5em;
-        top: 25px;
-        background-color: #F0EEE9;
-        opacity: 0.5;
+        top: 50px;
+        background-color: ${theme.light.colors.primary};
+        transition: height 1s;
+        transition-timing-function: cubic-bezier(0.5,5,0.5,1.56);
       }
       
       ul > li {
-        padding: 1em;
+        padding: 0.8em;
       }
       
       ul > li > a {
-        color: black;
+        color: ${theme.light.colors.navElements}
       }
       `}
 
@@ -111,10 +132,20 @@ export default function Navbar() {
     `}
   `;
 
-  const ContactContainer = styled.div`
+  const ContactContainer = styled.p`
     flex: 1;
     text-align: right;
-    color: red;
+    padding: 0;
+
+    img {
+      width: 20px;
+      height: 20px;
+      opacity: 0.7;
+    }
+
+    a:not(:last-child) {
+      margin: 0 0.4em;
+    }
 
     ${theme.mediaQeury.tablet`
       display: none;
@@ -124,14 +155,21 @@ export default function Navbar() {
   return (
     <Navbar className="Navbar">
       <Logo>
-        <Link to="/">daymoon's Dev Blog</Link>
+        <Link to="/">Daymoon Dev.</Link>
       </Logo>
       <input id="hamburger-menu" type="checkbox" />
       <label className="hamburger-container" htmlFor="hamburger-menu">
         <div className="hamburger-button"></div>
       </label>
-      <NavElements />
-      <ContactContainer>Contact</ContactContainer>
+      <NavElements isOpen={isOpen} setIsOpen={setIsOpen} />
+      <ContactContainer>
+        <a href={metaData.personal.github} target="_blank" rel="noreferrer">
+          <img src={github} alt="github" />
+        </a>
+        <a href={metaData.personal.instagram} target="_blank" rel="noreferrer">
+          <img src={instagram} alt="instagram" />
+        </a>
+      </ContactContainer>
     </Navbar>
   );
 }
