@@ -17,7 +17,7 @@ export default function WhoAmITemplate() {
     justify-content: flex-start;
     padding-top: 25vh;
 
-    ${theme.mediaQeury.tablet`
+    ${theme.mediaQuery.tablet`
       padding-top: 10vh;
     `}
   `;
@@ -32,13 +32,13 @@ export default function WhoAmITemplate() {
       letter-spacing: -1px;
     }
 
-    ${theme.mediaQeury.tablet`
+    ${theme.mediaQuery.tablet`
       p{
         font-size: 2em;
       }
     `}
 
-    ${theme.mediaQeury.mobile`
+    ${theme.mediaQuery.mobile`
       p{
         font-size: 1.3em;
       }
@@ -72,7 +72,7 @@ export default function WhoAmITemplate() {
       font-size: 0.8em;
     }
 
-    /* ${theme.mediaQeury.tablet`
+    /* ${theme.mediaQuery.tablet`
       padding-top: 5em;
     `} */
   `;

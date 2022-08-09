@@ -11,12 +11,12 @@ const breakpoint: breakpointProps = {
   desktop: 1280,
 };
 
-const mediaQeury = (
+const mediaQuery = (
   Object.keys(breakpoint) as Array<keyof typeof breakpoint>
 ).reduce((acc, key) => {
   acc[key] = (style: string) =>
-    `@media (max-width: ${breakpoint[key]}px) { ${style} }`;
+    `@media only screen and (max-width: ${breakpoint[key]}px) { ${style} }`;
   return acc;
 }, {} as { [index: string]: Function });
 
-export default mediaQeury;
+export default mediaQuery;

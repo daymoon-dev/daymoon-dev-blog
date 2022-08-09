@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "../styles/theme";
 
 export const PageTemplates = styled.section`
   display: flex;
@@ -6,6 +7,10 @@ export const PageTemplates = styled.section`
   height: 80vh;
   width: 100%;
   padding-top: 10vh;
+
+  ${theme.mediaQuery.tablet`
+    
+  `}
 `;
 export default function PageTemplate({
   children,

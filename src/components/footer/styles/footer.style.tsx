@@ -13,7 +13,7 @@ const FooterContainer = styled.div`
     font-size: 0.8em;
   }
 
-  ${theme.mediaQeury.mobile`
+  ${theme.mediaQuery.mobile`
       height: 5vh;
       justify-content: center;
     `}

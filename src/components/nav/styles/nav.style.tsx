@@ -1,11 +1,8 @@
 import styled from "styled-components";
 import theme from "../../../styles/theme";
 
-const NavList = styled.ul<{ isOpen: boolean }>`
-  display: ${(props) => {
-    console.log("props:" + props.isOpen);
-    return props.isOpen ? "flex" : "none";
-  }};
+const NavList = styled.ul`
+  display: flex;
   justify-content: center;
   margin: 0;
   padding: 0;
@@ -28,7 +25,7 @@ const NavList = styled.ul<{ isOpen: boolean }>`
     text-decoration: underline;
   }
 
-  ${theme.mediaQeury.tablet`
+  ${theme.mediaQuery.tablet`
     display: none;
     align-items: flex-end;
     position: absolute;
@@ -38,8 +35,7 @@ const NavList = styled.ul<{ isOpen: boolean }>`
     padding: 0.5em;
     top: 50px;
     // background-color: ${theme.light.colors.primary};
-    backbround-color: black;
-  
+
     li {
       padding: 0.8em;
     }
@@ -49,12 +45,12 @@ const NavList = styled.ul<{ isOpen: boolean }>`
     }  
   `}
 
-  ${theme.mediaQeury.mobile`
+  ${theme.mediaQuery.mobile`
       padding: 0 1em;
-    `}
+  `}
 `;
 
-const NavContainer = styled.header`
+const NavContainer = styled.header<{ isOpen: boolean }>`
   position: fixed;
   display: flex;
   left: 0;
@@ -121,9 +117,9 @@ const NavContainer = styled.header`
     transform: rotate(-405deg);
   }
 
-  ${theme.mediaQeury.tablet`
+  ${theme.mediaQuery.tablet`
     padding: 0 1em;
-
+    
     .hamburger-container{
       display: flex;
     }
@@ -133,8 +129,9 @@ const NavContainer = styled.header`
     }
 
     #hamburger-menu:checked ~ p {
-      display: flex
+      display: flex;
     }
+    
   `}
 `;
 
@@ -153,7 +150,7 @@ const ContactContainer = styled.p`
     margin: 0 0.4em;
   }
 
-  ${theme.mediaQeury.tablet`
+  ${theme.mediaQuery.tablet`
     display: none;
     position: absolute;
     flex-direction: row;

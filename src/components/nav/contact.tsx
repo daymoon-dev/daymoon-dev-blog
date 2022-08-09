@@ -3,7 +3,7 @@ import { ContactContainer } from "./styles/nav.style";
 import github from "../assets/image/github.svg";
 import instagram from "../assets/image/instagram.svg";
 
-export default function Contact() {
+function Contact() {
   return (
     <ContactContainer>
       <a href={metaData.personal.github} target="_blank" rel="noreferrer">
@@ -15,3 +15,5 @@ export default function Contact() {
     </ContactContainer>
   );
 }
+
+export default Contact;

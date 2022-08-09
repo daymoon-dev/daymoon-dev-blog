@@ -15,7 +15,7 @@ function NavElements({
   };
 
   return (
-    <NavList className="navlist" isOpen={isOpen}>
+    <NavList className="navlist">
       {element.map((element) => (
         <li key={element.id}>
           <Link onClick={menuClick} to={element.path}>
