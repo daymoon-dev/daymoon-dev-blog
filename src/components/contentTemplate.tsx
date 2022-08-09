@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { PostProps } from "../pages/posts";
-import { Half } from "./landing/HalfContainer";
+import { Half } from "./landing";
 
 export default function ContentTemplate({
   posts,

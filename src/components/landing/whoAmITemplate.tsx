@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Main } from "../assets/Titles";
-import { Half } from "./HalfContainer";
+import { Main } from "../index";
+import { Half } from "./halfContainer";
 import { metaData } from "../../data/metaData";
 import theme from "../../styles/theme";
 
@@ -83,7 +83,7 @@ export default function WhoAmITemplate() {
         <WhoAmITitle>whoami</WhoAmITitle>
       </TitleBox>
       <MenuTitleBox>
-        <p>daymoon</p>
+        <p>이종엽</p>
         <p>Frontend Developer</p>
         <SubTitleContainer className="subtitleContainer">
           {/* <SubTitle title="경력" /> */}

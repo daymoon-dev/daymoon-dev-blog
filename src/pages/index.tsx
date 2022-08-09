@@ -1,21 +1,20 @@
 import { Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import Navbar from "../components/nav/Navbar";
+import { Nav, Footer } from "../components";
 import theme from "../styles/theme";
-import LandingPage from "../components/landing";
-import Footer from "../components/footer/Footer";
 import Posts from "./posts";
 import Portfolio from "./portfolio";
 import PostDetail from "./postDetail";
 import PostInput from "./postInput";
 import { GlobalStyle } from "../styles/globalStyles";
+import { LandingPage } from "../components/landing";
 
 function Index() {
   return (
     <>
       <ThemeProvider theme={theme.light}>
         <GlobalStyle />
-        <Navbar />
+        <Nav />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/posts" element={<Posts />} />

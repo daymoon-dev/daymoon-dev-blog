@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Main } from "./assets/Titles";
-import { Half } from "./landing/HalfContainer";
+import { Main } from "./index";
+import { Half } from "./landing";
 
 export const Title = styled(Half)`
   justify-content: center;

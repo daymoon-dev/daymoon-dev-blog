@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import TitleTemplate from "../components/TitleTemplate";
-import PageTemplate from "../components/PageTemplate";
-import { Half } from "../components/landing/HalfContainer";
+import { TitleTemplate, PageTemplate } from "../components";
+import { Half } from "../components/landing";
+
 export default function Portfolio() {
   const PortfolioTemplate = styled(Half)`
     flex-direction: column;

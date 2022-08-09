@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
-import { MainTitle } from "../components/assets/Titles";
-import { Half } from "../components/landing/HalfContainer";
-import PageTemplate from "../components/PageTemplate";
+import { MainTitle, PageTemplate } from "../components";
+import { Half } from "../components/landing/halfContainer";
 import { Link, useParams } from "react-router-dom";
 import { fetchAddr } from "../data/metaData";
+import theme from "../styles/theme";
 
 export const PostTitle = styled(Half)`
   justify-content: center;
@@ -35,7 +35,7 @@ const StyledLink = styled(Link)`
   top: 45vh;
   left: 5vh;
   font-size: 5em;
-  color: black;
+  color: ${theme.light.colors.second};
 `;
 
 const postParam = {

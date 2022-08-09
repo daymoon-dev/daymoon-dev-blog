@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Half } from "./HalfContainer";
+import { Half } from "./halfContainer";
 import { metaData } from "../../data/metaData";
 
 export default function TitleTemplate() {

@@ -5,6 +5,6 @@ export const Half = styled.div`
   display: flex;
 `;
 
-export default function HalfContainer(content: string) {
+export function HalfContainer(content: string) {
   return <Half>{content}</Half>;
 }

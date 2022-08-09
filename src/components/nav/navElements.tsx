@@ -1,32 +1,7 @@
 import React, { ReactElement } from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
 import element from "../../data/NavElement";
-
-const NavList = styled.ul`
-  display: ${(isOpen) => (isOpen ? "flex" : "none")};
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-  flex: 1;
-
-  li {
-    list-style: none;
-
-    &:nth-child(n + 2) {
-      margin-left: 2em;
-    }
-  }
-
-  a {
-    text-decoration: none;
-    color: ${(props) => props.theme.colors.navElements};
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-`;
+import { NavList } from "./styles/nav.style";
 
 function NavElements({
   isOpen,
@@ -40,7 +15,7 @@ function NavElements({
   };
 
   return (
-    <NavList className="navlist">
+    <NavList className="navlist" isOpen={isOpen}>
       {element.map((element) => (
         <li key={element.id}>
           <Link onClick={menuClick} to={element.path}>

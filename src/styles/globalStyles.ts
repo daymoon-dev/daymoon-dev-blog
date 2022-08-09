@@ -10,19 +10,25 @@ export const GlobalStyle = createGlobalStyle`
 
   @font-face {
    font-family: "NanumMyeongjo";
-   src: url('./fonts/nanumMyeongjo/NanumMyeongjo.woff2') format('woff2');
+   font-weight: 400;
+   display: swap;
+   src: url('./fonts/nanumMyeongjo/NanumMyeongjo.woff') format('woff') url('./fonts/nanumMyeongjo/NanumMyeongjo.woff2') format('woff2');
   }
-
-  /* @font-face {
-   font-family: "Inter";
-   src: url('./fonts/inter/Inter-Regular.woff2') format('woff2');
-  } */
 
   @font-face {
     font-family: "Pretendard";
-    src: url('./fonts/pretendard/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+    src: url('./fonts/pretendard/Pretendard-Regular.woff') format('woff') url('./fonts/pretendard/Pretendard-Regular.woff2') format('woff2');
   }
 
+  @font-face {
+    font-family: "Pretendard";
+    font-weight: 700;
+    font-display: swap;
+    src: url('./fonts/pretendard/Pretendard-Bold.woff') format('woff') url('./fonts/pretendard/Pretendard-Bold.woff2') format('woff2');
+  }
+  
   a {
     text-decoration: none;
   }

@@ -1,14 +1,6 @@
-import TitleTemplate from "../components/TitleTemplate";
-import PageTemplate from "../components/PageTemplate";
-import ContentTemplate from "../components/ContentTemplate";
+import { TitleTemplate, PageTemplate, ContentTemplate } from "../components";
 import { useEffect, useState } from "react";
 import { fetchAddr } from "../data/metaData";
-
-export type PostProps = {
-  id: string;
-  title: string;
-  description: string;
-};
 
 export default function Posts(): React.ReactElement {
   const [posts, setPosts] = useState<PostProps[]>([]);
@@ -31,3 +23,9 @@ export default function Posts(): React.ReactElement {
     </PageTemplate>
   );
 }
+
+export type PostProps = {
+  id: string;
+  title: string;
+  description: string;
+};
