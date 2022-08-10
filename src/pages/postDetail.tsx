@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
-import { Main, PageTemplate } from "../components";
-import { Half } from "../components/landing/halfContainer";
+import { PageTemplate } from "../components/common";
+import { Main } from "../components";
+import { Half } from "../components/landing/styles/halfContainer.style";
 import { Link, useParams } from "react-router-dom";
 import { fetchAddr } from "../data/metaData";
 import theme from "../styles/theme";

@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
-import { PageTemplate } from "../components";
+import { PageTemplate } from "../components/common";
 import { fetchAddr } from "../data/metaData";
 import { ContentContainer, PostTitle } from "./postDetail";
 

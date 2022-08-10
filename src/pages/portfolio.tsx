@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { TitleTemplate, PageTemplate } from "../components";
-import { Half } from "../components/landing";
+import { TitleTemplate, PageTemplate } from "../components/common";
+import { Half } from "../components/landing/styles/halfContainer.style";
 
 export default function Portfolio() {
   const PortfolioTemplate = styled(Half)`

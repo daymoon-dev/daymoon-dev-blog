@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import theme from "../styles/theme";
-import { Main } from "./index";
-import { Half } from "./landing";
+import theme from "../../../styles/theme";
+import { Half } from "../../landing/styles/halfContainer.style";
 
 export const Title = styled(Half)`
   justify-content: center;
@@ -22,11 +21,3 @@ export const Title = styled(Half)`
     }
   `}
 `;
-
-export default function TitleTemplate({ title }: { title: string }) {
-  return (
-    <Title>
-      <Main>{title}</Main>
-    </Title>
-  );
-}

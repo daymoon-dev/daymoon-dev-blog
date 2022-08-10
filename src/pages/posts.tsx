@@ -1,4 +1,5 @@
-import { TitleTemplate, PageTemplate, ContentTemplate } from "../components";
+import { TitleTemplate, PageTemplate } from "../components/common";
+import { ContentTemplate } from "../components/posts";
 import { useEffect, useState } from "react";
 import { fetchAddr } from "../data/metaData";
 

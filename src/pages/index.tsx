@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import { Nav, Footer } from "../components";
+import { Nav, Footer } from "../components/";
 import theme from "../styles/theme";
 import Posts from "./posts";
 import Portfolio from "./portfolio";
