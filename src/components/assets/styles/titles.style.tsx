@@ -7,7 +7,7 @@ export const Main = styled.h1`
   margin: 0;
 
   ${theme.mediaQuery.mobile`
-    font-size: 4em;
+    font-size: 3em;
   `}
 `;
 

@@ -14,8 +14,9 @@ const FooterContainer = styled.div`
   }
 
   ${theme.mediaQuery.mobile`
-      height: 5vh;
       justify-content: center;
+      align-items: center;
+      padding: 0;
     `}
 `;
 

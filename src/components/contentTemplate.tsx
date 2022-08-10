@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { PostProps } from "../pages/posts";
+import theme from "../styles/theme";
 import { Half } from "./landing";
 
 export default function ContentTemplate({
@@ -16,9 +17,7 @@ export default function ContentTemplate({
     overflow: auto;
 
     span {
-      margin-bottom: 0.5em;
       font-size: 1.5em;
-      margin: 0 0 0.2em 0;
       color: ${(props) => props.theme.colors.second};
 
       &:hover {
@@ -31,6 +30,17 @@ export default function ContentTemplate({
       width: 75%;
       color: ${(props) => props.theme.colors.second};
     }
+
+    ${theme.mediaQuery.tablet`
+      width: 100%;
+      align-items: center;
+
+      p{
+        // display: none;
+        width: 100%;
+        font-size: 0.8em;
+      }
+    `}
   `;
 
   return (

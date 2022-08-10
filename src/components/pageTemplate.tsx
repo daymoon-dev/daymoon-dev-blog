@@ -9,7 +9,7 @@ export const PageTemplates = styled.section`
   padding-top: 10vh;
 
   ${theme.mediaQuery.tablet`
-    
+    flex-direction: column;
   `}
 `;
 export default function PageTemplate({

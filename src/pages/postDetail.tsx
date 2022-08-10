@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
-import { MainTitle, PageTemplate } from "../components";
+import { Main, PageTemplate } from "../components";
 import { Half } from "../components/landing/halfContainer";
 import { Link, useParams } from "react-router-dom";
 import { fetchAddr } from "../data/metaData";
@@ -18,16 +18,37 @@ export const PostTitle = styled(Half)`
     margin: 0;
     height: 0;
   }
+
+  ${theme.mediaQuery.tablet`
+    width: 100%;
+    padding-left: 0;
+    text-align: center;
+    line-height: 2em;
+    
+    h1{
+      font-size: 2em;
+      z-index: -1;
+    }
+    
+    p {
+      font-size: 1em;
+      margin: 0;
+      padding: 0;
+    }
+  `}
 `;
 
 export const ContentContainer = styled(Half)`
-  flex-direction: column;
-  justify-content: flex-start;
   overflow: auto;
   width: 55%;
   text-align: left;
-  font-size: 2em;
-  /* padding: 3.1em 3em 0 1.5em; */
+  font-size: 1.5em;
+
+  ${theme.mediaQuery.tablet`
+    // width: 100%;
+    font-size: 1em;
+    padding: 2em;
+  `}
 `;
 
 const StyledLink = styled(Link)`
@@ -36,6 +57,13 @@ const StyledLink = styled(Link)`
   left: 5vh;
   font-size: 5em;
   color: ${theme.light.colors.second};
+
+  ${theme.mediaQuery.tablet`
+    top: 70px;
+    font-size: 2em;
+    left: 3vw;
+    z-index: 1;
+  `}
 `;
 
 const postParam = {
@@ -58,8 +86,8 @@ export default function PostDetail() {
   return (
     <PageTemplate>
       <StyledLink to="/posts">&larr;</StyledLink>
-      <PostTitle className="MainpostTitle">
-        <MainTitle title={title} />
+      <PostTitle className="MainPostTitle">
+        <Main>{title}</Main>
         <p>{description}</p>
       </PostTitle>
       <ContentContainer className="contentContainer">

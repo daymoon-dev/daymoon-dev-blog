@@ -20,10 +20,10 @@
 - [ ] Seperate a Style sheet
 - [ ] Lazy Loading
   - [x] 로딩 메시지
-- [ ] 모바일 최적화(반응형)
-  - [ ] 폰트 크기 변경
+- [x] 모바일 최적화(반응형)
+  - [x] 폰트 크기 변경
     - [x] Main -> whoami
-    - [ ] postdetail
+    - [x] postdetail
   - [x] navbar 햄버거 메뉴
 - [ ] Refactoring
   - [ ] Business Layer...?
