@@ -40,7 +40,6 @@ const TitleBox = styled(Half)`
 const MenuTitleBox = styled(Half)`
   flex-direction: column;
   justify-content: center;
-  width: 90%;
 
   p {
     font-size: 2em;
@@ -49,6 +48,7 @@ const MenuTitleBox = styled(Half)`
   }
 
   ${theme.mediaQuery.tablet`
+    width: 90%;
     text-align: center;
   `}
 
