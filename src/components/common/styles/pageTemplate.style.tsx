@@ -4,11 +4,12 @@ import theme from "../../../styles/theme";
 export const PageTemplates = styled.section`
   display: flex;
   flex-direction: row;
-  height: 80vh;
+  height: calc(100vh - 10vh - 50px);
   width: 100%;
-  padding-top: 10vh;
+  padding-top: 50px;
 
   ${theme.mediaQuery.tablet`
     flex-direction: column;
+    height: calc(100vh - 100px);
   `}
 `;

@@ -15,8 +15,8 @@ export default function WhoAmITemplate() {
         <WhoAmITitle>whoami</WhoAmITitle>
       </TitleBox>
       <MenuTitleBox>
-        <p>이종엽</p>
-        <p>Frontend Developer</p>
+        <p>{metaData.personal.name}</p>
+        <p>{metaData.personal.job}</p>
         <SubTitleContainer className="subtitleContainer">
           {/* <SubTitle title="경력" /> */}
           {metaData.career.map((career) => (

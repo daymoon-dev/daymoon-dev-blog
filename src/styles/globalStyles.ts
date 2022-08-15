@@ -2,12 +2,22 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
  body{
-   background-color: ${({ theme }) => theme.colors.primary};
+  margin: 0;
+  padding: 0;
 
-   font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', sans-serif, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue';
-   color: ${({ theme }) => theme.colors.second};
+  background-color: ${({ theme }) => theme.colors.primary};
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', sans-serif, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue';
+  color: ${({ theme }) => theme.colors.second};
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   }
 
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
   @font-face {
    font-family: "NanumMyeongjo";
    font-weight: 400;

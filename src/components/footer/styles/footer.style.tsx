@@ -8,10 +8,15 @@ const FooterContainer = styled.div`
   height: 10vh;
   padding: 0 3em;
   color: ${(props) => props.theme.colors.second};
+  bottom: 0;
 
   p {
     font-size: 0.8em;
   }
+
+  ${theme.mediaQuery.tablet`
+    height: 50px;
+  `}
 
   ${theme.mediaQuery.mobile`
       justify-content: center;
