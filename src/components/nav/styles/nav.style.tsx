@@ -50,7 +50,7 @@ const NavList = styled.ul`
   `}
 `;
 
-const NavContainer = styled.header<{ isOpen: boolean }>`
+const NavContainer = styled.header`
   position: fixed;
   display: flex;
   left: 0;
@@ -131,7 +131,6 @@ const NavContainer = styled.header<{ isOpen: boolean }>`
     #hamburger-menu:checked ~ p {
       display: flex;
     }
-    
   `}
 `;
 
