@@ -80,7 +80,7 @@ export default function PostDetail() {
 
   useEffect(() => {
     fetch(fetchAddr + `/${id}`)
-      .then((response) => response.json())
+      .then(response => response.json())
       .then((data) => setContents(data));
   }, [id]);
 

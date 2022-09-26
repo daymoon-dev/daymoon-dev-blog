@@ -8,7 +8,7 @@ import jwtDecode from "jwt-decode";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState<object | null>(null);
   const googleLoginBtn = useRef(null);
   // const googleLogoutBtn = useRef(null);
 
@@ -21,19 +21,23 @@ export default function Navbar() {
 
     window.google.accounts.id.renderButton(googleLoginBtn.current,
       { theme: "outline", size: "large" });
-
-    // window.google.accounts.id.prompt();
     })
     
-  const handleCredentialResponse = (response: CredentialResponse) => {
-    if(!response.clientId || !response.credential) return;
-    let userObject: object = jwtDecode(response.credential);
-    console.log(userObject);
-    setUser(userObject);
+  const handleCredentialResponse = (response: any) => {
+    fetch("https://ee6m4wpu2c.execute-api.ap-northeast-2.amazonaws.com/dev/login", {
+      headers: {
+        authorization: response.credential,
+      },
+    }).then(res => console.log(res)).then(data => console.log(typeof(data))).catch(err => console.error(err));
+    console.log(response.credential);
+    
+    // if(!response.clientId || !response.credential) return;
+    // let userObject: object = jwtDecode(response.credential);
+    // setUser(userObject);
   }
     
   const googleLogout = () => {
-    setUser(""); 
+    setUser(null);
   }
 
   const toggleTrigger = () => {
@@ -45,15 +49,13 @@ export default function Navbar() {
       <Logo>
         <Link to="/">Daymoon Dev.</Link>
       </Logo>
-      <input id="hamburger-menu" type="checkbox" onClick={toggleTrigger} checked={isOpen} />
+      <input id="hamburger-menu" type="checkbox" onClick={toggleTrigger} checked={isOpen} onChange={toggleTrigger} />
       <label className="hamburger-container" htmlFor="hamburger-menu">
         <div className="hamburger-button" />
       </label>
         <NavElements isOpen={isOpen} setIsOpen={setIsOpen} /> 
       <Contact />
-      <div>
-        {!user ? <button ref={googleLoginBtn} /> : <button onClick={googleLogout}>Sign Out</button>}
-      </div>
+      {user ? <button onClick={googleLogout}>Sign Out</button> : <div ref={googleLoginBtn} />}
     </NavContainer>
   );
 }

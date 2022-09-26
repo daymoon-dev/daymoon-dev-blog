@@ -16,6 +16,7 @@
 ### TODO
 
 - [ ] Theme toggle
+- [ ] whoami scrollintoview
 - [ ] markdown Editor
 - [ ] Seperate a Style sheet
 - [ ] Lazy Loading
@@ -25,6 +26,7 @@
 - [ ] 권한 설정
   - [ ] Login
   - [ ] JWT
+  - [ ] global state management
 - [ ] Context API
 - [ ] SEO
   - [ ] react-helmet
@@ -41,5 +43,3 @@
 - [x] 중복 게재 방지
 
 ### ISSUE
-
-- [ ] media query props 안 먹힘..(not passed...)

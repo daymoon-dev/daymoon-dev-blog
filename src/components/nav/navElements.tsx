@@ -12,7 +12,6 @@ function NavElements({
 }): ReactElement {
   const menuClick = (e:any) => {
     setIsOpen(!isOpen);
-    console.log(isOpen);
   };
 
   // const scrollToElement = (selector: string) => {

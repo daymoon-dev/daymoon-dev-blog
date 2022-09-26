@@ -1,4 +1,4 @@
-type metaDataProps = {
+interface metaDataProps {
   personal: {
     name: string;
     nickname: string;
@@ -36,6 +36,6 @@ const metaData: metaDataProps = {
   ],
 };
 
-const fetchAddr: string = `https://2kqdat8o2c.execute-api.ap-northeast-2.amazonaws.com/post`;
+const fetchAddr: string = `https://ee6m4wpu2c.execute-api.ap-northeast-2.amazonaws.com/dev/post`;
 
 export { metaData, fetchAddr };
